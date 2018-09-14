@@ -1,0 +1,34 @@
+body {
+	margin:0;
+}
+
+.table {
+	display: flex;
+	justify-content: center;
+	margin-top:20px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	text-align: center;
+	height:30px;
+	min-width: 50px;
+	padding:10px;
+	border: 1px solid rgba(0, 0, 0, .1)
+}
+tr {
+	transition: 0.3s all;
+}
+
+tr:nth-child(odd):hover {
+	background: #686666;
+	transition: 0.3s all;
+}
+
+tr:nth-child(odd) {
+	color: white;
+	background: gray;
+}
