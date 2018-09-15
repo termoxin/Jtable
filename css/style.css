@@ -1,5 +1,9 @@
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
 body {
 	margin:0;
+	font-family: "Roboto" sans-serif;
 }
 
 .table {
@@ -9,26 +13,41 @@ body {
 }
 
 table {
+	font-size:10px;
 	border-collapse: collapse;
 }
 
 td {
 	text-align: center;
 	height:30px;
+	color:#836665;
 	min-width: 50px;
-	padding:10px;
-	border: 1px solid rgba(0, 0, 0, .1)
+	padding:0;
+	border: 1px solid white;
 }
 tr {
 	transition: 0.3s all;
 }
 
-tr:nth-child(odd):hover {
-	background: #686666;
+tr:hover {
+	background: gray;
 	transition: 0.3s all;
 }
 
-tr:nth-child(odd) {
+tr:first-child {
 	color: white;
-	background: gray;
+	background: #A6ECDD;
+}
+tr{
+	background: #FFE48D;
+}
+input {
+	height: 100%;
+	max-width: 100px;
+	min-width:50px;
+}
+input:focus {
+	margin:0;
+	padding:10px;
+	border:0;
 }
