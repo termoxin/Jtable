@@ -1,17 +1,17 @@
 
 
-function Controller(model, view) {
-	this.model = model;
-	this.view = view;
-	this.init();
-}
+class Controller {
+	constructor(model, view) {
+		this.model = model;
+		this.view = view;
+		this.init();
+	}
 
-Controller.prototype = {
-	init: function() {
+	init() {
 		this.view.countSubject.on(this.renderTable.bind(this))
-	},
+	}
 
-	renderTable: function() {
+	renderTable() {
 		this.model.renderTable()
 	}
 }

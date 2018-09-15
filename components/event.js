@@ -1,15 +1,16 @@
 
-function Event() {
-	this.events = [];
-}
+class Event {
 
-Event.prototype = {
-	on: function (eventCallBack) {
+	constructor() {
+		this.events = [];
+	}
+
+	on(eventCallBack) {
 		this.events.push(eventCallBack)
-	},
+	}
 
-	fire: function (args) {
-		for(var i = 0; i < this.events.length; i++) {
+	fire(args) {
+		for(let i = 0; i < this.events.length; i++) {
 			this.events[i](args)
 		}
 	}

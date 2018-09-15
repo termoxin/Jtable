@@ -1,11 +1,13 @@
-function View(model) {
-    this.model = model;
-    this.countSubject = new Event();
-    this.init();
-}
 
-View.prototype = {
-    init: function() {
+
+class View {
+    constructor(model) {
+        this.model = model;
+        this.countSubject = new Event();
+        this.init();
+    }
+
+    init() {
         this.table = this.selector('.table');
 
         window.addEventListener('load', this.renderTable.bind(this));
@@ -16,21 +18,23 @@ View.prototype = {
         this.refreshTable()
 
         return this;
-    },
+    }
 
     // Edit table
-    editTable: function() {
-    	var that = this;
-    	
+    editTable() {
+        let that = this;
+        
         if (localStorage.getItem('table')) {
             document.querySelector('.table').addEventListener('click', (e) => {
                 if (!e.target.dataset.set) {
                     if (e.target.nodeName == 'TD' || e.target.nodeName == 'TR') {
-                        var row = e.target.dataset.row
-                        var column = e.target.dataset.column
-                        var table = JSON.parse(localStorage.getItem('table'))
-                        var input = document.createElement('input')
-                        var text = e.target.textContent;
+                        let row = e.target.dataset.row
+                        let column = e.target.dataset.column
+
+                        let table = JSON.parse(localStorage.getItem('table'))
+                        let input = document.createElement('input')
+                        let text = e.target.textContent;
+
                         input.type = 'text'
                         input.value = text;
                         input.autofocus = 'autofocus'
@@ -55,32 +59,32 @@ View.prototype = {
             })
 
         }
-    },
+    }
 
     // render new Table
-    renderTable: function() {
+    renderTable() {
 
         if(!localStorage.getItem('table')) {
-            var w = prompt("Введите ширину таблицы(в ячейках): ", '')
-            var h = prompt("Введите высоту таблицы(в ячейках): ", '')
+            let w = prompt("Введите ширину таблицы(в ячейках): ", '')
+            let h = prompt("Введите высоту таблицы(в ячейках): ", '')
 
             localStorage.setItem('table', JSON.stringify(renderArrayOfTable(w, h)))
 
         }
-    },
+    }
 
     // render table from this.model.table
-    refreshTable: function() {
+    refreshTable() {
         this.model.getTable()
 
-        var table = document.createElement('table')
+        let table = document.createElement('table')
 
         this.table.innerHTML = ''
 
-        for (var w = 0; w < this.model.table.length; w++) {
-            var tr = document.createElement('tr');
-            for (var h = 0; h < this.model.table[w].length; h++) {
-                var td = document.createElement('td');
+        for (let w = 0; w < this.model.table.length; w++) {
+            let tr = document.createElement('tr');
+            for (let h = 0; h < this.model.table[w].length; h++) {
+                let td = document.createElement('td');
                 td.dataset.row = w;
                 td.dataset.column = h;
                 td.textContent = this.model.table[w][h]
@@ -90,10 +94,10 @@ View.prototype = {
         }
 
         this.table.appendChild(table)
-    },
+    }
 
     // method for search a element in DOM
-    selector: function(selector, tobj) {
+    selector(selector, tobj) {
         let that = document || tobj
 
         return that.querySelector(selector)

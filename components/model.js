@@ -1,16 +1,16 @@
 
 
-function Model() {
-	this.table = ''
-	this.countSubject = new Event(this)
-}
+class Model {
+	constructor() {
+		this.table = ''
+		this.countSubject = new Event(this)
+	}
 
-Model.prototype = {
-	renderTable: function(type) {
+	renderTable(type) {
 		this.countSubject.fire();
-	},
+	}
 
-	getTable: function() {
+	getTable() {
 		this.table = JSON.parse(localStorage.getItem('table'));
 	}
 }
