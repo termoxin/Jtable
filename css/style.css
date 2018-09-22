@@ -6,6 +6,10 @@ body {
 	font-family: "Roboto" sans-serif;
 	background-size:cover;
 	background-image: url('https://images.wallpaperscraft.com/image/new_york_usa_night_skyscrapers_118354_1366x768.jpg');
+	/*background-repeat: no-repeat;*/
+}
+html {
+	height: 100%;
 }
 
 .table {
@@ -28,6 +32,7 @@ td {
 	max-width: 150px;
 	padding:2px;
 	border: 1px solid white;
+	cursor: pointer;
 }
 tr {
 	transition: 0.3s all;
