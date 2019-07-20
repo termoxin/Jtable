@@ -19,13 +19,13 @@ var GetOrMakeDom = function(params,context){
 	}
 
 	//if no params, return empty dom() object
-	if(!params || params === '' || typeof params === 'string' && params.trim() === ''){
+	if(!params || typeof params === 'string' && params.trim() === ''){
 		this.length = 0;
 		return this;
 	}
 
 	//if HTML string, construct domfragment, fill object, then return object
-	if(typeof params === 'string' && /^\s*<(\w+|!)[^>]*>/.test(params)){//yup its forsure html string
+	if(typeof params === 'string' && /^\s*<(\w+|!)[^>]*>/.test(params)){//up its forsure html string
 		//create div & docfrag, append div to docfrag, then set its div's innerHTML to the string, then get first child
 		var divElm = currentContext.createElement('div');
 		divElm.className = 'doc-frag-wrapper';
